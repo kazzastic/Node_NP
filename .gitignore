@@ -1,2 +1,4 @@
 /logger.js
 express-demo/node_modules
+mongo_express/node_modules
+mongo_express/.env
