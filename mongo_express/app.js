@@ -3,7 +3,9 @@ const app = express();
 const mongoose = require('mongoose');
 require('dotenv/config');
 const postsRoute = require('./routes/post');
+const bodyParser = require('body-parser');
 
+app.use(bodyParser.json());
 app.use('/posts', postsRoute);
 
 mongoose.connect(process.env.DB_CONNECTION,

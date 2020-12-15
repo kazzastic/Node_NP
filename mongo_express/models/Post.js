@@ -4,7 +4,7 @@ const PostSchema = mongoose.Schema({
         type: String, 
         required: true
     },
-    descriptio: {
+    description: {
         type: String, 
         required: true
     },
@@ -14,8 +14,4 @@ const PostSchema = mongoose.Schema({
     } 
 });
 
-mongoose.Schema({
-    username: String, 
-    password: String, 
-    
-});
+module.exports = mongoose.model('Posts', PostSchema);
