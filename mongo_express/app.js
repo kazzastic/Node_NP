@@ -5,10 +5,12 @@ require('dotenv/config');
 const postsRoute = require('./routes/post');
 const bodyParser = require('body-parser');
 
+var DB_LOCAL = 'mongodb://localhost:27017';
+
 app.use(bodyParser.json());
 app.use('/posts', postsRoute);
 
-mongoose.connect(process.env.DB_LOCAL,
+mongoose.connect(DB_LOCAL,
     { useNewUrlParser: true }, 
     ()=> console.log('connected to DB!'));
 
