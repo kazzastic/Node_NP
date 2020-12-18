@@ -8,7 +8,7 @@ const bodyParser = require('body-parser');
 app.use(bodyParser.json());
 app.use('/posts', postsRoute);
 
-mongoose.connect(process.env.DB_CONNECTION,
+mongoose.connect(process.env.DB_LOCAL,
     { useNewUrlParser: true }, 
     ()=> console.log('connected to DB!'));
 

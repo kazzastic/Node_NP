@@ -1,52 +1,17 @@
 const express = require('express');
 const router = express.Router();
-const Post = require('../models/Post');
+const get_post = require('../controllers/showPosts')
+const send_post = require('../controllers/sendPost');
+const delete_post = require('../controllers/deletePost');
 
-router.get('/', async(req, res) => {
-    try{
-        const posts = await Post.find();
-        res.json(posts);
-    }catch(err){
-        res.json({message: err});
-    }
-});
+router.get('/', get_post.get_all_posts);
 
-router.get('/specific', (req, res) => {
-    res.send('We are on specific post!');
-});
+router.post('/', send_post.send_post);
 
-router.post('/', (req, res) =>{
-    const post = new Post({
-        title: req.body.title,
-        description: req.body.description
-    });
-    post.save()
-    .then(data => {
-        res.json(data);
-    })
-    .catch(err => {
-        res.json({ message: err });
-    });
-});
+router.get('/:postId', get_post.get_one_post);
 
-router.get('/:postId', async(req, res) =>{
-    try{
-        const post = await Post.findById(req.params.postId);
-        res.json(post);
-    }catch(err){
-        res.json({message: err});
-    }
-});
+router.delete('/:postId', delete_post.delete_post);
 
-router.delete('/:postId', async(req, res) =>{
-    try{
-        const removedpost = await Post.remove({_id: req.params.postId});
-        res.json(removedpost);
-    }catch(err){
-        res.json({message: err});
-    }
-});
-
-router.patch('/:postId', );
+//router.patch('/:postId', );
 
 module.exports = router;
