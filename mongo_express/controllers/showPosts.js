@@ -12,7 +12,7 @@ exports.get_all_posts = async(req, res) => {
 exports.get_one_post = async(req, res) => {
     try{
         const post = await Post.findById(req.params.postId);
-        res.json(post);
+        res.json("Post ID: "+post.id+" "+"Post Title: "+post.title);
     }catch(err){
         res.json({message: err});
     }

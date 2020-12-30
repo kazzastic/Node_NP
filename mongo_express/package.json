@@ -6,7 +6,7 @@
     "start": "nodemon app.js",
     "test": "mocha"
   },
-  "author": "",
+  "author": "Kazim",
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.19.0",
@@ -26,5 +26,14 @@
     "nodemon": "^2.0.6",
     "supertest": "^6.0.1"
   },
-  "description": ""
+  "directories": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kazzastic/Node_NP/tree/master/mongo_express"
+  },
+  "engines": {
+    "node": "10.15.2"
+  }
 }
