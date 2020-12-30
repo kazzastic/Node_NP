@@ -11,6 +11,10 @@ pipeline {
     stage('Test') {
       parallel {
         stage('Test Response') {
+          environment {
+            DB_CONNECTION = 'mongodb+srv://kazzastic:megacloud1@cluster0.6wesf.mongodb.net/test?retryWrites=true&w=majority'
+            PORT = '5000'
+          }
           steps {
             echo 'Testing the build'
             sh 'script/test'
