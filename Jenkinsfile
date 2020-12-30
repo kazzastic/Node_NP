@@ -48,4 +48,8 @@ pipeline {
     }
 
   }
+  environment {
+    DB_CONNECTION = 'mongodb+srv://kazzastic:megacloud1@cluster0.6wesf.mongodb.net/test?retryWrites=true&w=majority'
+    PORT = '5000'
+  }
 }
